@@ -52,3 +52,41 @@ Mini Project 2: Wallet Smart Contract
 -deposit eth
 -see balance
 -withdraw eth to a specific address
+
+
+Structs
+struct Funder {
+ address addr;
+ uint amount;
+}
+
+Funder _funder;
+_funder.addr = 0x123;
+_funder.amount = 5000;
+
+-members of struct can be of any type except for a Struct.
+
+
+Structs and Mappings combined:
+struct MyStruct {
+ uint var1;
+ uint var2;
+ }
+ mapping(uint => MyStruct) public someVar;
+
+ Enum - one way to create a user-defined type in Solidity (integers internally)
+ enum ActionChoices {GoLeft, GoRight, GoStrait, SitStill }
+ ActionChoices choice;
+ ActionChoices constant defaultChoice = ActionChoices.GoStraight;
+
+ Address-Low Level calls
+.send() returns a Boolean, doesn't cascade exceptions
+.call{gas: ..., value: ...}() lets you forward a specific amount of gas, also returns a boolean
+
+.send, .transfer both only transfer 2300 gas along
+Mini Project 3: The Smart Contract Wallet Implementation
+1. Wallet has 1 Owner
+2. Receive funds with a fallback function
+3. Spend money on Externally Owned Account and Contracts
+4. Give Allowance to other people
+5. Set a new owner with 3-out-of-5 guardians
