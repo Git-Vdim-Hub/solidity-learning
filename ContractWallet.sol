@@ -64,9 +64,4 @@ contract ContractWallet {
 
     receive() external payable {}
 
-
-    fallback() external payable {
-
-    }
-
 }
